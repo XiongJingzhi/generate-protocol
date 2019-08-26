@@ -6,6 +6,10 @@
 2. 通过模板替换生成html, 并搭建express服务
 3. 通过puppeteer实现截图
 
+### 运行
+
+node index.js
+
 ### 目录约定
 
 - config/index.js
