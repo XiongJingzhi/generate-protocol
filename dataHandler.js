@@ -8,7 +8,7 @@ function formatDate(numb = null, format = '-') {
   } else {
     time = new Date()
   }
-  let year = time.getFullYear() + ''
+  const year = time.getFullYear() + ''
   let month = time.getMonth() + 1 + ''
   month = month < 10 ? '0' + month : month
   let date = time.getDate() + ''
@@ -26,15 +26,15 @@ function importData(excelPath) {
 }
 
 function getSex(id) {
-  let sexNumber = Number(id.substr(-2, 1))
+  const sexNumber = Number(id.substr(-2, 1))
   return [0, 2, 4, 6, 8].includes(sexNumber) ? '女' : '男'
 }
 
 function tranData(data) {
-  let res = []
+  const res = []
   data.forEach(item => {
     const a = {
-      avatar: `./images/${item['身份证件号码'].trim()}.jpg` ,
+      avatar: `./images/${item['身份证件号码'].trim()}.jpg`,
       name: item['姓名'].trim(),
       sex: getSex(item['身份证件号码'].trim()),
       idcardType: '身份证',

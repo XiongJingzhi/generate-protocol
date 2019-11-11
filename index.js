@@ -9,14 +9,14 @@ const getTargets = require('./generateHTMLs').getTargets
 const generateContracts = require('./generateContracts')
 
 function getData(importData, tranData, path) {
-  let data = importData(path)
+  const data = importData(path)
   return tranData(data)
 }
 
 function main() {
   // 1、获取数据
   console.time('耗时')
-  let data = getData(importData, tranData, config.excel)
+  const data = getData(importData, tranData, config.excel)
   generateHTMLs(config.htmlPath, data, template)
   const links = getTargets(config.htmlPath, config.port)
   // 2、开启express服务

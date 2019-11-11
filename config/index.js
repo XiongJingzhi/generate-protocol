@@ -8,6 +8,6 @@ const config = {
   port: 4000
 }
 
-config.htmlPath =  path.join(__dirname, '..', config.htmlPath)
+config.htmlPath = path.join(__dirname, '..', config.htmlPath)
 
 module.exports = config
