@@ -1,4 +1,5 @@
 const XLSX = require('xlsx')
+const { NAME, IDTYPE, IDCARDNUMBER, COMPANY, CERTIFICATETYPE, CERTIFICATENUMBER, BUSINESSSCOPE, BUSINESSAREA, WEBSITE, PHONE, COMPLAINTPHONE } = require('./config/field')
 
 function formatDate(numb = null, format = '-') {
   let time = ''
@@ -34,19 +35,19 @@ function tranData(data) {
   const res = []
   data.forEach(item => {
     const a = {
-      avatar: `./images/${item['身份证件号码'].trim()}.jpg`,
-      name: item['姓名'].trim(),
-      sex: getSex(item['身份证件号码'].trim()),
-      idcardType: '身份证',
-      idcardNumber: item['身份证件号码'].trim(),
-      certificateType: item['执业证类型'].trim(),
-      certificateNumber: item['执业证编号'].trim(),
-      company: item['所属公司'].trim(),
-      businessScope: '代理销售保险产品',
-      businessArea: '湖北省',
-      webSite: 'http://iir.circ.gov.cn/',
-      queryPhone: '--',
-      complaintPhone: '--'
+      avatar: `./images/${item[IDCARDNUMBER].trim()}.jpg`,
+      name: item[NAME].trim(),
+      sex: getSex(item[IDCARDNUMBER].trim()),
+      idcardType: IDTYPE,
+      idcardNumber: item[IDCARDNUMBER].trim(),
+      certificateType: item[CERTIFICATETYPE].trim(),
+      certificateNumber: item[CERTIFICATENUMBER].trim(),
+      company: item[COMPANY].trim(),
+      businessScope: BUSINESSSCOPE,
+      businessArea: BUSINESSAREA,
+      webSite: WEBSITE,
+      queryPhone: PHONE,
+      complaintPhone: COMPLAINTPHONE
     }
     res.push(a)
   })
